@@ -1,0 +1,113 @@
+additional_feature_files: null
+batch_size: 64
+cache_validation_data: true
+checkpoint_path: null
+clip_gradient_norm: 1
+clip_targets_to_zero:
+- streamflowmean
+- levelmean
+- streamflowinst
+- levelinst
+data_dir: .../Supplementary_materials/Data
+dataset: basquehourly
+device: cuda:1
+dynamic_inputs:
+  1D:
+  - precipitation
+  - temperature
+  - potential_evapotranspiration
+  1H:
+  - precipitation
+  - temperature
+  - potential_evapotranspiration
+embedding_activation: null
+embedding_dropout: null
+embedding_hiddens: null
+epochs: 50
+evolving_attributes: null
+experiment_name: URA_Random_Search
+forcings:
+- basquehourly
+head: regression
+hidden_size: 128
+initial_forget_bias: null
+learning_rate:
+  0: 0.001
+  10: 0.0005
+  25: 0.0001
+log_interval: 5
+log_n_figures: 0
+log_tensorboard: true
+loss: RMSE
+metrics:
+- NSE
+- KGE
+- MSE
+- RMSE
+- Alpha-NSE
+- Beta-NSE
+- Beta-KGE
+- Pearson-r
+- FHV
+- FMS
+- FLV
+- Peak-Timing
+- Peak-MAPE
+- Missed-Peaks
+model: mtslstm
+num_workers: 7
+ode_method: null
+ode_num_unfolds: null
+ode_random_freq_lower_bound: null
+optimizer: Adam
+output_activation: linear
+output_dropout: 0.2
+package_version: 1.8.1
+per_basin_test_periods_file: null
+per_basin_train_periods_file: null
+per_basin_validation_periods_file: null
+predict_last_n:
+  1D: 1
+  1H: 24
+regularization: null
+run_dir: runs/train_test/URA_Random_Search
+save_train_data: false
+save_validation_results: true
+save_weights_every: 1
+seed: null
+seq_length:
+  1D: 1095
+  1H: 4032
+shared_mtslstm: false
+static_attributes: null
+target_noise_std: null
+target_variables:
+- streamflowmean
+- levelmean
+- streamflowinst
+- levelinst
+test_basin_file: URA40basins_list.txt
+test_end_date: 30/09/2021
+test_start_date: 01/10/2015
+train_basin_file: URA40basins_list.txt
+train_data_file: .../Supplementary_materials/URA40_2005to2015/train_data.p
+train_end_date: 30/09/2015
+train_start_date: 01/10/2005
+transfer_mtslstm_states:
+  c: linear
+  h: linear
+transformer_dim_feedforward: null
+transformer_dropout: null
+transformer_nheads: null
+transformer_nlayers: null
+transformer_positional_dropout: null
+transformer_positional_encoding_type: null
+use_basin_id_encoding: true
+use_frequencies:
+- 1H
+- 1D
+validate_every: 1
+validate_n_random_basins: -1
+validation_basin_file: URA40basins_list.txt
+validation_end_date: 30/09/2005
+validation_start_date: 01/10/2000
